@@ -64,4 +64,18 @@ Create a new pull request and merge.
 
 ## Write tests
 
+Update [development environment](/readme.md#development-environment) to install `black` and `pytest` locally.
 
+Implement [calculator test](./test_calculator.py)
+
+Add test execution to the [CI](./.github/workflows/build.yaml#L20-L43)
+
+Add [`launch.json`](/.vscode/launch.json) and [`settings.json`](/.vscode/settings.json) to SCM. Since the `.vscode` folder is in [`.gitignore`](/.gitignore#L2), the addition has to be forced, ie:
+
+```shell
+git add --force .vscode/settings.json
+```
+
+## Release
+
+Create a release.

@@ -15,12 +15,28 @@ For practicing follow the [task descriptions](./tasks.md) and executes them in a
 ```shell
 python -m pip install --upgrade pip
 python -m venv .venv
+pip install -r requirements.txt
 ```
 
 2. Activate the created virtual environment
 ```shell
 .\.venv\Scripts\Activate.ps1
 ```
+
+3. Formatting the code
+```shell
+black .
+```
+
+4. running test
+```shell
+pytest . -v
+```
+
+### IDE
+
+If you are using Visual Studio Code, then the project specific [settings](/.vscode/settings.json) and [launch configurations](/.vscode/launch.json) are in `.vscode` folder.
+
 
 ## Working flow
 
