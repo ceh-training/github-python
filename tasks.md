@@ -45,3 +45,8 @@ Update the [`readme.md`](/readme.md#working-flow) with working flows.
 ## Pull request
 
 Create a branch to implement the issue and create a pull-request.
+
+Create a [github workflow](/.github/workflows/build.yaml) that validates the code formatting automatically at every push or PRs.
+
+## Fix the formatting issue
+
