@@ -1,0 +1,54 @@
+
+name: Release Calculator
+
+on:
+  push:
+    tags:
+      - 'v?[0-9]+\.[0-9]+\.[0-9]+'
+
+permissions:
+  contents: write      # For release creation
+  issues: write        # Milestones
+  pull-requests: write # PRs
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test
+        run: |
+          pip install -r requirements.txt
+          pytest . -v --junit-xml=test-results.xml
+      - name: Package artifacts
+        shell: bash
+        run: |
+          zip -r calc-release-${{ env.GITHUB_REF_NAME }}.zip calculator.py test-results.xml
+          echo "artifact=calc-release-${{ env.GITHUB_REF_NAME }}.zip" >> $GITHUB_OUTPUT
+        id: package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: calc-artifacts
+          path: calc-release-${{ env.GITHUB_REF_NAME }}.zip
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: calc-artifacts
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: calc-release-${{ env.GITHUB_REF_NAME }}.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

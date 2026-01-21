@@ -46,6 +46,10 @@ If you are using Visual Studio Code, then the project specific [settings](/.vsco
 4. Create a pull-request to the upstream project
 
 
+## Release
+
+Create a tag on the commit you want to release. The tag naming convenvtion must fit to `<major>.<minor>.<patch>` format where both `major`, `minor` and `patch` are numbers, ie: `0.2.1`.
+
 ## Usage
 
 ```shell
