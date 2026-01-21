@@ -8,18 +8,19 @@ def eprint(*args, **kwargs):
 
 
 def main():
-   while True:
+    while True:
         line = input()
         if not line:
-              break
+            break
         for segment in line.split():
-          try:
+            try:
                 arg = int(segment)
                 arguments.append(arg)
-          except ValueError as e:
-               eprint(f"invalid argument: '{segment}'; {e}")
+            except ValueError as e:
+                eprint(f"invalid argument: '{segment}'; {e}")
 
-   print(sum(arguments))
+    print(sum(arguments))
+
 
 if __name__ == "__main__":
     main()

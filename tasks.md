@@ -50,3 +50,18 @@ Create a [github workflow](/.github/workflows/build.yaml) that validates the cod
 
 ## Fix the formatting issue
 
+```shell
+python -m pip install black
+black --check .
+black .\calculator.py
+git checkout -b fix_formatting
+git add --patch
+git commit --message "refromat code"
+git push --set-upstream origin fix_formatting
+```
+
+Create a new pull request and merge.
+
+## Write tests
+
+
