@@ -22,6 +22,14 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
+## Working flow
+
+1. In case of new feature requirements or bug fixes create [new issues](/../../issues/new)
+2. Fork the project under your github account
+3. Create a new branch for the issue to implement
+4. Create a pull-request to the upstream project
+
+
 ## Usage
 
 ```shell

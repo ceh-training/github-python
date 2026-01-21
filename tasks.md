@@ -35,3 +35,13 @@ Create a calculator python application that reads 2 numbers from the standard in
 ## Issues
 
 Create an [new issue](/../../issues/new?title=formatting) for formatting expectation.
+
+Organize the issues under both milestones and projects
+
+Create [issue template](/.github/ISSUE_TEMPLATE.md)
+
+Update the [`readme.md`](/readme.md#working-flow) with working flows.
+
+## Pull request
+
+Create a branch to implement the issue and create a pull-request.
